@@ -1,4 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import {gql} from 'apollo-boost'
+import {graphql} from 'react-apollo'
+
+const getBooksQuery = gql`
+  {
+    books{
+      name
+      id
+    }
+  }
+`
 
 class BookList extends Component {
   render() {
@@ -12,4 +23,5 @@ class BookList extends Component {
   }
 }
 
-export default BookList;
+// bind getBooksQuery to BookList, then inside BookList component, we can access getBooksQuery data from this.props.books
+export default graphql(getBooksQuery)(BookList);
