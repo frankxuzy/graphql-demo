@@ -34,6 +34,7 @@ class BookDetails extends Component {
   }
 }
 
+//it will fire everytime bookId changed
 export default graphql(getBookDetails, {
   options: (props) => {
     return {
